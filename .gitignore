@@ -1,0 +1,15 @@
+# AdPulse
+node_modules/
+dist/
+target/
+.DS_Store
+*.swp
+.env
+.env.local
+*.wasm
+!contracts/**/test_snapshots/
+.idea/
+.vscode/
+frontend/dist/
+deployments/local-keys.json
+*.log

@@ -13,3 +13,4 @@ target/
 frontend/dist/
 deployments/local-keys.json
 *.log
+*.tsbuildinfo 

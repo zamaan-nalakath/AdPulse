@@ -60,7 +60,7 @@ export function LandingPage() {
           AdPulse
         </Link>
         <div className="landing-nav-links">
-          <Link to="/app/advertiser">Campaigns</Link>
+          <Link to="/app/campaigns">Campaigns</Link>
           <Link to="/app/publisher">Publish</Link>
           <Link to="/app" className="btn landing-nav-cta">
             Open app
@@ -84,7 +84,7 @@ export function LandingPage() {
             earnings on Stellar.
           </p>
           <div className="landing-cta">
-            <Link to="/app/advertiser" className="btn">
+            <Link to="/app/campaigns" className="btn">
               Fund a campaign
             </Link>
             <Link to="/app/publisher" className="btn btn-ghost">

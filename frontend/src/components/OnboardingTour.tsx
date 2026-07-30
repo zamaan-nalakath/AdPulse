@@ -6,7 +6,7 @@ const steps: Step[] = [
     placement: "center",
     title: "Welcome to AdPulse",
     content:
-      "Pay-per-impression micro-ads on Stellar Testnet. Advertisers escrow XLM; publishers earn on verified views.",
+      "Pay-per-impression micro-ads on Stellar Testnet. Advertisers escrow XLM; publishers earn on verified views. Use the Overview hub or the dual nav to move between roles.",
   },
   {
     target: '[data-tour="wallet"]',
@@ -15,32 +15,34 @@ const steps: Step[] = [
       "Use Freighter, xBull, LOBSTR, or another wallet via Stellar Wallets Kit. Switch Freighter to Testnet first.",
   },
   {
-    target: '[data-tour="balance"]',
-    title: "Check your XLM",
+    target: '[data-tour="nav-hub"]',
+    title: "Overview hub",
     content:
-      "Your Testnet balance loads from Horizon. Use Friendbot if the account is empty.",
+      "Start here for a dual-role map — campaigns, slots, impressions, earnings, fraud, and activity. Balance appears next to the wallet after you connect.",
   },
   {
     target: '[data-tour="advertiser"]',
-    title: "Fund a campaign",
+    title: "Advertiser tools",
     content:
-      "Create a slot domain and escrow budget into the Ad Space contract. You'll get a tx hash on success.",
+      "Campaigns escrow budget; Slots register domains; CPM models cost; Fraud shows slash paths.",
   },
   {
-    target: '[data-tour="publisher"]',
-    title: "Settle impressions",
+    target: '[data-tour="nav-publisher"]',
+    title: "Publisher tools",
     content:
-      "Publishers settle view batches. Anti-fraud can reject/slash bots. Earnings update from on-chain events.",
+      "Earnings for withdraw, Impressions to settle batches, Activity for the live event feed.",
   },
   {
-    target: '[data-tour="cpm"]',
-    title: "CPM calculator",
-    content: "Model cost per thousand views before you commit escrow.",
+    target: '[data-tour="nav-cpm"]',
+    title: "CPM lab",
+    content:
+      "Model cost per thousand views and preview creatives before you commit escrow.",
   },
   {
-    target: '[data-tour="preview"]',
-    title: "Ad preview",
-    content: "Preview the creative in a publisher banner frame.",
+    target: '[data-tour="nav-fraud"]',
+    title: "Anti-fraud",
+    content:
+      "See rejection codes and inter-contract slash visibility on Testnet.",
   },
 ];
 
@@ -51,7 +53,8 @@ type Props = {
 
 export function OnboardingTour({ run, onDone }: Props) {
   const handle = (data: CallBackProps) => {
-    const finished = data.status === STATUS.FINISHED || data.status === STATUS.SKIPPED;
+    const finished =
+      data.status === STATUS.FINISHED || data.status === STATUS.SKIPPED;
     if (finished) onDone();
   };
 

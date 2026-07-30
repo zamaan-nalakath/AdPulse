@@ -410,6 +410,241 @@ select:focus {
   }
 }
 
+/* ——— App multi-page layout ——— */
+
+.app-nav {
+  align-items: flex-start;
+}
+
+.nav-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .nav-brand-row {
+    width: auto;
+  }
+}
+
+.nav-menu-toggle {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--paper-dim);
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 900px) {
+  .nav-menu-toggle {
+    display: none;
+  }
+}
+
+.nav-drawer {
+  display: none;
+  width: 100%;
+}
+
+.nav-drawer.open {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .nav-drawer {
+    display: block;
+    width: auto;
+    flex: 1;
+  }
+}
+
+.nav-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.55rem 0.85rem 0.15rem;
+  display: block;
+}
+
+.nav-group {
+  display: contents;
+}
+
+@media (min-width: 900px) {
+  .nav-section-label {
+    display: inline-block;
+    padding: 0.45rem 0.5rem 0.45rem 0.85rem;
+    border-left: 1px solid var(--line);
+    margin-left: 0.15rem;
+  }
+
+  .app-nav {
+    align-items: center;
+  }
+
+  .app-nav > .wallet-row {
+    margin-left: auto;
+  }
+}
+
+.nav-hub {
+  color: var(--paper) !important;
+}
+
+.page-panel .subhead {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.form-narrow {
+  max-width: 28rem;
+}
+
+.hub-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .hub-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.hub-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.1rem 1.15rem;
+  text-decoration: none;
+  color: inherit;
+  border-top: 2px solid rgba(232, 163, 23, 0.45);
+  background: linear-gradient(
+    160deg,
+    rgba(22, 20, 16, 0.92),
+    rgba(12, 11, 9, 0.85)
+  );
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.hub-card:hover {
+  border-top-color: var(--amber-hot);
+  transform: translateY(-2px);
+}
+
+.hub-role {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.hub-card strong {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  color: var(--paper);
+}
+
+.hub-card > span:last-child {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.status-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.status-chips li {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--line);
+  color: var(--paper-dim);
+}
+
+.status-chips li.ok {
+  border-color: rgba(45, 212, 168, 0.35);
+  color: var(--signal);
+}
+
+.status-chips li.warn {
+  border-color: rgba(232, 163, 23, 0.35);
+  color: var(--amber-hot);
+}
+
+.earnings-readout {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.fraud-contracts p {
+  margin: 0.35rem 0;
+  word-break: break-all;
+  font-size: 0.78rem;
+}
+
+.fraud-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.fraud-list li {
+  display: grid;
+  gap: 0.25rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--danger);
+}
+
+.fraud-list strong {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: var(--amber-hot);
+  font-weight: 500;
+}
+
+.fraud-list span {
+  color: var(--paper-dim);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.event-list--tall {
+  max-height: min(60vh, 480px);
+}
+
 /* ——— Landing ——— */
 
 .landing {

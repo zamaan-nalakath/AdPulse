@@ -1,8 +1,5 @@
 import { StellarSdk, prepareContractCall, submitSoroban } from "./stellar";
-import {
-  AD_SPACE_CONTRACT,
-  ANTI_FRAUD_CONTRACT,
-} from "./config";
+import { AD_SPACE_CONTRACT } from "./config";
 
 export function requireAdSpace(): string {
   if (!AD_SPACE_CONTRACT) {
@@ -117,14 +114,12 @@ export async function withdrawEarnings(source: string, sign: SignFn) {
 
 export async function readEarnings(publisher: string): Promise<bigint> {
   const id = requireAdSpace();
-  const { rpc } = await import("./stellar");
-  const { StellarSdk: S } = await import("./stellar");
+  const { rpc, StellarSdk: S, NETWORK_PASSPHRASE } = await import("./stellar");
   const account = await rpc.getAccount(publisher);
-  // Use simulate of get_earnings
   const contract = new S.Contract(id);
   const tx = new S.TransactionBuilder(account, {
     fee: S.BASE_FEE,
-    networkPassphrase: (await import("./config")).NETWORK_PASSPHRASE,
+    networkPassphrase: NETWORK_PASSPHRASE,
   })
     .addOperation(
       contract.call(
@@ -142,15 +137,6 @@ export async function readEarnings(publisher: string): Promise<bigint> {
     return BigInt(S.scValToNative(sim.result.retval));
   }
   return 0n;
-}
-
-export async function readCampaign(campaignId: number) {
-  const id = requireAdSpace();
-  const { rpc, StellarSdk: S, NETWORK_PASSPHRASE } = await import("./stellar");
-  // Need any funded account for simulation — caller should pass; use contract view via getLedgerEntries is harder.
-  // Fallback: require a dummy - we use getLedgerEntries style via simulate with a random key only works if account exists.
-  void ANTI_FRAUD_CONTRACT;
-  return { id, campaignId, network: NETWORK_PASSPHRASE, S, rpc };
 }
 
 export function parseContractError(message: string): string {

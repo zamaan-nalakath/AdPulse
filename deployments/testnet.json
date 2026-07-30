@@ -1,0 +1,20 @@
+{
+  "network": "testnet",
+  "networkPassphrase": "Test SDF Network ; September 2015",
+  "admin": "GC26WJ2BPKVQQTI4KO57VNUNXQQA4GB4SPKF3NPIHHTIWC53BAWN3TYT",
+  "native_sac": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+  "anti_fraud": "CDJNWLDHWZAOX72ENVAE7W2MOUWZDNLTKHDGQMMGJTWTL7Q4T57PUA4H",
+  "ad_space": "CCI2JKAC7VBL5QQLC2RXZHI5VLG3ETWCAP4VC5AXMK67J7GZY3NAFIE3",
+  "transactions": {
+    "anti_fraud_wasm_upload": "25f57b271762fec89095edce0a9bd3f46ab5dfb0b5acf73011d2e67fb9d1ee55",
+    "anti_fraud_deploy": "473f5ca3528860baf3e015d0d3843696262c91315531cb92d5b40edd8ef776bc",
+    "anti_fraud_initialize": "d6d9b64868f57c4b8214be46c2c61ec6390718339a17a5d591a28a9c0750559d",
+    "ad_space_wasm_upload": "c371743070b37c997a6f0c67bc72e211e30fd49e6698f1385735e37dc63e58d5",
+    "ad_space_deploy": "0063a4e30ec9760c27426cea0296c26ef01e5f790905b2a172cc923409930ceb",
+    "ad_space_initialize": "bc32702be3268486c780e078f7d8e1fcbce05809803639c72677e36669299eb2",
+    "create_slot": "28696dfa7bd9f6f79a662cf11039fa0b7fd1a58ea4524b74ae9ab42c62f28576",
+    "fund_campaign": "f4ceb463181de53d46242260ad6e417d2fb416ee36db670d3b4ac8e6833e49de",
+    "settle_impressions": "9757749c17320abffd58597d7054da2976b596f81b87337528a2068323d96cc1"
+  },
+  "deployed_at": "2026-07-30T15:00:00Z"
+}

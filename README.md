@@ -4,7 +4,7 @@
 
 Websites publish ad slots; advertisers escrow micro-XLM budgets; verified impression batches settle to publishers. An Anti-Fraud contract can slash deposits when bot or fake views are detected.
 
-Stellar Build Station submission — **Level 1 · Level 2 · Level 3**
+Stellar Mastery Program submission — **Level 1 · Level 2 · Level 3**
 
 **Author:** Nidaal \<nidaalnaazluqman@gmail.com\>
 
@@ -151,4 +151,4 @@ npm run dev
 
 ## License
 
-Demo project for Stellar Build Station.
+Demo project for the Stellar Mastery Program.

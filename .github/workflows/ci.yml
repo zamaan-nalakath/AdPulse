@@ -9,6 +9,9 @@ jobs:
   contracts:
     name: Contracts (test + build)
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contracts
     steps:
       - uses: actions/checkout@v4
       - name: Install Rust
@@ -18,18 +21,14 @@ jobs:
       - name: Cache cargo
         uses: Swatinem/rust-cache@v2
         with:
-          workspaces: contracts
+          workspaces: contracts -> target
       - name: Unit tests
-        working-directory: contracts
-        run: cargo test
-      - name: Install Stellar CLI
-        run: |
-          curl -sSL https://github.com/stellar/stellar-cli/releases/latest/download/stellar-cli-x86_64-unknown-linux-gnu.tar.gz | tar xz
-          sudo mv stellar /usr/local/bin/
-          stellar --version
+        run: cargo test --workspace
       - name: Build WASM
-        working-directory: contracts
-        run: stellar contract build
+        run: |
+          rustup target add wasm32v1-none || rustup target add wasm32-unknown-unknown
+          cargo build --release --target wasm32v1-none --workspace || \
+          cargo build --release --target wasm32-unknown-unknown --workspace
 
   frontend:
     name: Frontend build
@@ -59,8 +58,10 @@ jobs:
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
           source "$HOME/.cargo/env"
           rustup target add wasm32v1-none
-          curl -sSL https://github.com/stellar/stellar-cli/releases/latest/download/stellar-cli-x86_64-unknown-linux-gnu.tar.gz | tar xz
-          sudo mv stellar /usr/local/bin/
+          curl -fsSL https://github.com/stellar/stellar-cli/raw/main/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.local/bin:$PATH"
+          stellar --version || sudo install -m 755 "$HOME/.local/bin/stellar" /usr/local/bin/stellar
       - name: Deploy
         env:
           DEPLOY_SECRET: ${{ secrets.ADPULSE_DEPLOY_SECRET }}

@@ -149,6 +149,14 @@ npm run dev
 
 [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs `cargo test`, WASM build, and frontend build.
 
+### Pipeline passing (proof)
+
+`AdPulse CI` on `master` — contracts + frontend green (manual deploy skipped on push):
+
+<p align="center">
+  <img src="docs/screenshots/04-ci-cd-passing.png" alt="AdPulse CI — GitHub Actions contracts and frontend jobs passing" width="900" />
+</p>
+
 ## License
 
 Demo project for the Stellar Mastery Program.
